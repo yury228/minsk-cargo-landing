@@ -10,27 +10,27 @@ import { Button } from '@/components/ui/button';
 // Если фотографий нет, карусель не будет отображаться
 const images = [
   {
-    src: '/gallery/photo1.jpg',
+    src: '/gallery/photo1.JPG',
     alt: 'Грузчики за работой',
   },
   {
-    src: '/gallery/photo2.jpg',
+    src: '/gallery/photo2.JPG',
     alt: 'Перевозка мебели',
   },
   {
-    src: '/gallery/photo3.jpg',
+    src: '/gallery/photo3.JPG',
     alt: 'Грузовой транспорт',
   },
   {
-    src: '/gallery/photo4.jpg',
+    src: '/gallery/photo4.JPG',
     alt: 'Квартирный переезд',
   },
   {
-    src: '/gallery/photo5.jpg',
+    src: '/gallery/photo5.JPG',
     alt: 'Офисный переезд',
   },
   {
-    src: '/gallery/photo6.jpg',
+    src: '/gallery/photo6.JPG',
     alt: 'Доставка грузов',
   },
 ].filter(Boolean); // Фильтруем пустые значения
@@ -98,7 +98,7 @@ export function Gallery() {
     <section id="gallery" className="relative py-12 sm:py-16 md:py-20 lg:py-32 overflow-hidden">
       {/* Градиентный фон */}
       <div className="absolute inset-0 bg-gradient-to-br from-slate-50 via-blue-50/50 to-slate-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900" />
-      
+
       <div className="container mx-auto px-3 sm:px-4 md:px-6 lg:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -198,11 +198,10 @@ export function Gallery() {
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`relative rounded-full transition-all duration-300 touch-manipulation active:scale-90 ${
-                  index === currentIndex
+                className={`relative rounded-full transition-all duration-300 touch-manipulation active:scale-90 ${index === currentIndex
                     ? 'h-2.5 w-8 sm:h-3 sm:w-10 bg-primary shadow-lg shadow-primary/50'
                     : 'h-2 w-2 sm:h-2.5 sm:w-2.5 bg-primary/30 hover:bg-primary/50 active:bg-primary/60'
-                }`}
+                  }`}
                 aria-label={`Перейти к фото ${index + 1}`}
               />
             ))}
