@@ -10,8 +10,8 @@ const EMAIL = 'srusakivic03@gmail.com';
 const ADDRESS = 'г. Минск, проспект Рокоссовского, д. 141';
 const VIBER_NUMBER = '+375292035662';
 const VIBER_NUMBER_DIGITS = VIBER_NUMBER.replace('+', '');
-const VIBER_CHAT_LINK = `viber://chat?number=${encodeURIComponent(VIBER_NUMBER)}`;
-const VIBER_WEB_FALLBACK = `https://viber.com/${VIBER_NUMBER_DIGITS}`;
+const VIBER_CHAT_LINK = `viber://add?number=${encodeURIComponent(VIBER_NUMBER)}`;
+const VIBER_WEB_FALLBACK = `https://viber.click/${VIBER_NUMBER_DIGITS}`;
 
 export function Contact() {
   return (
