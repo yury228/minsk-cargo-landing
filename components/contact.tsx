@@ -8,7 +8,10 @@ const PHONE_NUMBER = '+375292035662';
 const PHONE_DISPLAY = '+375 (29) 203-56-62';
 const EMAIL = 'srusakivic03@gmail.com';
 const ADDRESS = 'г. Минск, проспект Рокоссовского, д. 141';
-const VIBER_NUMBER = '375292035662';
+const VIBER_NUMBER = '+375292035662';
+const VIBER_NUMBER_DIGITS = VIBER_NUMBER.replace('+', '');
+const VIBER_CHAT_LINK = `viber://chat?number=${encodeURIComponent(VIBER_NUMBER)}`;
+const VIBER_WEB_FALLBACK = `https://viber.com/${VIBER_NUMBER_DIGITS}`;
 
 export function Contact() {
   return (
@@ -116,12 +119,16 @@ export function Contact() {
                   </div>
                 </div>
                 <a
-                  href={`viber://chat?number=${VIBER_NUMBER}`}
+                  href={VIBER_CHAT_LINK}
                   onClick={(e) => {
-                    // Fallback для веб-версии
-                    if (!window.navigator.userAgent.match(/Viber/i)) {
+                    if (typeof window === 'undefined') {
+                      return;
+                    }
+
+                    const hasViber = /Viber/i.test(window.navigator.userAgent);
+                    if (!hasViber) {
                       e.preventDefault();
-                      window.open(`https://viber.com/chat?number=${VIBER_NUMBER}`, '_blank');
+                      window.open(VIBER_WEB_FALLBACK, '_blank');
                     }
                   }}
                   className="flex items-center justify-center gap-2 w-full h-12 sm:h-11 px-6 sm:px-8 rounded-md text-sm sm:text-base font-semibold text-white bg-gradient-to-r from-[#665CAC] to-[#7B6FBF] hover:from-[#7B6FBF] hover:to-[#665CAC] shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95"
